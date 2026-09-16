@@ -5,7 +5,7 @@ on: push
 
 jobs:
   build:
-    stratergy:
+    strategy:
         matrix:
             node-version: [12,14,16]
             operating-systems: [ubuntu-latest,windows-latest]
