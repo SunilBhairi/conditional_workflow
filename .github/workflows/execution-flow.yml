@@ -75,3 +75,13 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  reports:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: output information
+        run: |
+          echo "something is wrong"
+          echo "reports are collected"
+        
+
