@@ -1,9 +1,9 @@
 name : matrix check
 on : push
-jobs: matrix nodes js verison implement
-  build : 
-  runs-on: ubuntu-latest
-  steps:
+jobs : 
+    build : 
+    runs-on: ubuntu-latest
+    steps:
     - name : Get code
       uses : actions/checkout@v4
     - name : install nodejs
