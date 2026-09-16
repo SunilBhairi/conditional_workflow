@@ -5,10 +5,18 @@ on: push
 
 jobs:
   build:
+    continue-on-error : true
     strategy:
         matrix:
             node-version: [12,14,16]
             operating-systems: [ubuntu-latest,windows-latest]
+            inlcude:
+                - node-version: 18
+                  operation-system: ubuntu-latest
+            exclude:
+                 -node-version: 20
+                 operating-system
+
     runs-on: ${{ matrix.operating-systems }}
 
     steps:
