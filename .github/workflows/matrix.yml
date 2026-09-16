@@ -1,21 +1,23 @@
-
 name: Matrix Check
 
 on: push
 
 jobs:
   build:
-    continue-on-error : true
+    continue-on-error: true
+
     strategy:
-        matrix:
-            node-version: [12,14,16]
-            operating-systems: [ubuntu-latest,windows-latest]
-            inlcude:
-                - node-version: 18
-                  operation-system: ubuntu-latest
-            exclude:
-                 -node-version: 20
-                 operating-system
+      matrix:
+        node-version: [12, 14, 16]
+        operating-systems: [ubuntu-latest, windows-latest]
+
+        include:
+          - node-version: 18
+            operating-systems: ubuntu-latest
+
+        exclude:
+          - node-version: 12
+            operating-systems: windows-latest
 
     runs-on: ${{ matrix.operating-systems }}
 
@@ -33,4 +35,3 @@ jobs:
 
       - name: Build project
         run: npm run build
-
