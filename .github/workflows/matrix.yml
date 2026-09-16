@@ -1,0 +1,16 @@
+name : matrix check
+on : push
+jobs: matrix nodes js verison implement
+  build : 
+  runs-on: ubuntu-latest
+  steps:
+    - name : Get code
+      uses : actions/checkout@v4
+    - name : install nodejs
+      uses : actions/setup-node@v4
+      with :
+        node-version: 14
+    - name : install dependencies
+      run : npm ci
+    - name : Build project
+      run : npn run build
